@@ -3,6 +3,7 @@ package com.example.Cliente.controller;
 import com.example.Cliente.controller.dto.SaleDTO;
 import com.example.Cliente.servicio.rabbitmq.ServicioPulicaMensaje;
 import com.google.gson.Gson;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class SendMessageController {
     public SendMessageController(ServicioPulicaMensaje servicioPulicaMensaje) {
         this.servicioPulicaMensaje = servicioPulicaMensaje;
     }
-
+    @Operation(summary = "Send message to shop-api")
     @PostMapping("/product")
     public ResponseEntity<String> sellProduct(@RequestBody SaleDTO saleDTO){
         try{
